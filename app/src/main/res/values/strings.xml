@@ -3,6 +3,7 @@
     <string name="regName">Nombre</string>
     <string name="regEmail">Correo</string>
     <string name="regPass">Contraseña</string>
-    <string name="regBtn">Ingresar</string>
+    <string name="regBtn">Registrarse</string>
+    <string name="loginBtn">Ingresar</string>
 
 </resources>
