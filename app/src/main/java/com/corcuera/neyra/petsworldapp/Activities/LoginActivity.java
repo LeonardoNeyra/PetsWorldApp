@@ -38,26 +38,29 @@ public class LoginActivity extends AppCompatActivity {
         userPass = (EditText) findViewById(R.id.login_pass);
         btnLogin = (Button) findViewById(R.id.login_btn);
         loginProgress = (ProgressBar) findViewById(R.id.login_progress);
-        loginPhoto = (ImageView) findViewById(R.id.registerPhoto);
+        loginPhoto = (ImageView) findViewById(R.id.login_img);
         mAuth = FirebaseAuth.getInstance();
-        HomeActivity = new Intent(this, com.corcuera.neyra.petsworldapp.Activities.HomeActivity.class);
-
-        loginProgress.setVisibility(View.INVISIBLE);
+        HomeActivity = new Intent(this, com.corcuera.neyra.petsworldapp.Activities.HomeNav.class);
 
         // Imagen de perfil
         loginPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent registerActivity = new Intent(getApplicationContext(), RegisterActivity.class);
+                Intent registerActivity = new Intent(getApplicationContext(),RegisterActivity.class);
                 startActivity(registerActivity);
                 finish();
             }
         });
 
+        loginProgress.setVisibility(View.INVISIBLE);
+
         // Boton Login
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                loginProgress.setVisibility(View.VISIBLE);
+                btnLogin.setVisibility(View.INVISIBLE);
+
                 final String email = userEmail.getText().toString();
                 final String pass = userPass.getText().toString();
 
