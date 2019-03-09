@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.corcuera.neyra.petsworldapp.R;
@@ -24,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnLogin;
     private ProgressBar loginProgress;
     private ImageView loginPhoto;
+    private TextView loginRegister;
 
     private FirebaseAuth mAuth;
 
@@ -39,8 +41,19 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = (Button) findViewById(R.id.login_btn);
         loginProgress = (ProgressBar) findViewById(R.id.login_progress);
         loginPhoto = (ImageView) findViewById(R.id.login_img);
+        loginRegister = (TextView) findViewById(R.id.login_register);
         mAuth = FirebaseAuth.getInstance();
         HomeActivity = new Intent(this, com.corcuera.neyra.petsworldapp.Activities.HomeNav.class);
+
+        // Clic para crear cuenta
+        loginRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent registerActivity = new Intent(getApplicationContext(),RegisterActivity.class);
+                startActivity(registerActivity);
+                finish();
+            }
+        });
 
         // Imagen de perfil
         loginPhoto.setOnClickListener(new View.OnClickListener() {
@@ -66,8 +79,8 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (email.isEmpty() || pass.isEmpty()){
                     showToast("Todos los campos deben estar llenos");
-                    loginProgress.setVisibility(View.VISIBLE);
-                    btnLogin.setVisibility(View.INVISIBLE);
+                    loginProgress.setVisibility(View.INVISIBLE);
+                    btnLogin.setVisibility(View.VISIBLE);
                 }
                 else {
                     signIn(email.trim(), pass.trim());
@@ -94,6 +107,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     loginProgress.setVisibility(View.INVISIBLE);
                     btnLogin.setVisibility(View.VISIBLE);
+                    showToast("Bienvenido!");
                     updateUI();
                 }
                 else {

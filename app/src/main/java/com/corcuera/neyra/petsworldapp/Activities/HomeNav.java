@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.corcuera.neyra.petsworldapp.Fragments.HomeFragment;
@@ -46,8 +47,10 @@ public class HomeNav extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Toast.makeText(HomeNav.this, "Nuevo post", Toast.LENGTH_SHORT).show();
+                Intent loginActivity = new Intent(getApplicationContext(), AddpetActivity.class);
+                startActivity(loginActivity);
+                finish();
             }
         });
 

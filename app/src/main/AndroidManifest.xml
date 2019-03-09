@@ -23,7 +23,8 @@
         <activity
             android:name=".Activities.HomeNav"
             android:label="@string/title_activity_home_nav"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Activities.AddpetActivity"></activity>
     </application>
 
 </manifest>

@@ -16,6 +16,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.Manifest;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 //import com.corcuera.neyra.petsworldapp.Manifest;
@@ -40,6 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText userName, userMail, userPass;
     private Button regBtn;
     private ProgressBar loading;
+    private TextView regLogin;
 
     private FirebaseAuth mAuth;
 
@@ -55,11 +57,21 @@ public class RegisterActivity extends AppCompatActivity {
         userPass = (EditText) findViewById(R.id.registerPass);
         regBtn = (Button) findViewById(R.id.registerBtn);
         loading = (ProgressBar) findViewById(R.id.progressBar);
+        regLogin = (TextView) findViewById(R.id.regLogin);
         loading.setVisibility(View.INVISIBLE);
 
         // Instanciar Firebase
         mAuth = FirebaseAuth.getInstance();
 
+        // Clic si ya tienes una cuenta
+        regLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent registerActivity = new Intent(getApplicationContext(),LoginActivity.class);
+                startActivity(registerActivity);
+                finish();
+            }
+        });
 
         // Boton Registrar
         regBtn.setOnClickListener(new View.OnClickListener() {
