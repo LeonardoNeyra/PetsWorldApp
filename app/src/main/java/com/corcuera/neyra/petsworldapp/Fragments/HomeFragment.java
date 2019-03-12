@@ -163,18 +163,18 @@ public class HomeFragment extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 
-    private void listData() {
+    /*private void listData() {
         databaseReference.child("Post").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                /*postList.clear();
+                postList.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Post post = snapshot.getValue(Post.class);
                     postList.add(post);
 
                     postArrayAdapter = new ArrayAdapter<Post>(getContext(), R.layout.row_post_item, postList);
                     listaPost.setAdapter(postArrayAdapter);
-                }*/
+                }
             }
 
             @Override
@@ -182,5 +182,5 @@ public class HomeFragment extends Fragment {
 
             }
         });
-    }
+    }*/
 }

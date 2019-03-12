@@ -15,8 +15,8 @@ import java.util.List;
 
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> {
 
-    Context mContext;
-    List<Post> mData;
+        Context mContext;
+        List<Post> mData;
 
     public PostAdapter(Context mContext, List<Post> mData) {
         this.mContext = mContext;

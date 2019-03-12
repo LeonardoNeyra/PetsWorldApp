@@ -7,7 +7,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.corcuera.neyra.petsworldapp.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -38,6 +40,7 @@ public class ProfileFragment extends Fragment {
     FirebaseAuth mAuth;
     FirebaseUser currentUser;
     TextView profile_tvName, profile_tvEmail;
+    Button profile_btn;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -80,9 +83,17 @@ public class ProfileFragment extends Fragment {
 
         profile_tvName = rootview.findViewById(R.id.profile_name);
         profile_tvEmail = rootview.findViewById(R.id.profile_email);
+        profile_btn = rootview.findViewById(R.id.profile_btn);
 
         profile_tvName.setText(currentUser.getDisplayName());
         profile_tvEmail.setText(currentUser.getEmail());
+
+        profile_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(),"El botón no es funcional, aún",Toast.LENGTH_SHORT).show();
+            }
+        });
 
         return rootview;
     }

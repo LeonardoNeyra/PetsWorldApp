@@ -86,7 +86,7 @@ public class AddpetActivity extends AppCompatActivity {
                 final String peso = spnPeso.getSelectedItem().toString();
 
                 if (nombre.isEmpty() || color.isEmpty() || numero.isEmpty() || comentario.isEmpty() || (rbtnHembra.isChecked() == false && rbtnMacho.isChecked() ==false) ) {
-                    showToast("Llene todos los campos");
+                    showToast("Verifique que todos los campos estén llenos");
                     validation();
                 }
                 else {
@@ -111,15 +111,15 @@ public class AddpetActivity extends AppCompatActivity {
 
                     // Creamos el objeto User
                     User user = new User();
-                    user.setUid(generalUID);
+                    user.setUid(currentUser.getUid());
                     user.setUsername(currentUser.getDisplayName());
                     user.setCorreo(currentUser.getEmail());
                     // Agregamos un nodo "User"
-                    databaseReference.child("User").child(generalUID).setValue(user);
+                    // databaseReference.child("User").child(generalUID).setValue(user);
 
                     // Creamos el objeto Post
                     Post post = new Post();
-                    post.setUid(generalUID);
+                    post.setUid(currentUser.getUid());
                     post.setMascota(pet);
                     post.setUsuario(user);
                     // Agregamos un nodo "Post"
@@ -137,7 +137,7 @@ public class AddpetActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 clearFields();
-                showToast("Cancelado");
+                showToast("Cancelado...");
                 goToAddFragment();
             }
         });
