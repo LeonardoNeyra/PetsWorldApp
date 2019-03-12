@@ -9,6 +9,10 @@
             android:icon="@drawable/ic_home_black_24dp"
             android:title="Inicio" />
         <item
+            android:id="@+id/nav_my_posts"
+            android:icon="@drawable/ic_assignment_black_24dp"
+            android:title="Mis Posts" />
+        <item
             android:id="@+id/nav_profile"
             android:icon="@drawable/ic_person_black_24dp"
             android:title="Perfil" />

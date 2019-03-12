@@ -7,22 +7,18 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.corcuera.neyra.petsworldapp.R;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link ProfileFragment.OnFragmentInteractionListener} interface
+ * {@link PostsFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link ProfileFragment#newInstance} factory method to
+ * Use the {@link PostsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ProfileFragment extends Fragment {
+public class PostsFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -34,12 +30,7 @@ public class ProfileFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    // Nuestros parámetros
-    FirebaseAuth mAuth;
-    FirebaseUser currentUser;
-    TextView profile_tvName, profile_tvEmail;
-
-    public ProfileFragment() {
+    public PostsFragment() {
         // Required empty public constructor
     }
 
@@ -49,11 +40,11 @@ public class ProfileFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ProfileFragment.
+     * @return A new instance of fragment PostsFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ProfileFragment newInstance(String param1, String param2) {
-        ProfileFragment fragment = new ProfileFragment();
+    public static PostsFragment newInstance(String param1, String param2) {
+        PostsFragment fragment = new PostsFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -71,20 +62,10 @@ public class ProfileFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootview =  inflater.inflate(R.layout.fragment_profile, container, false);
-
-        mAuth = FirebaseAuth.getInstance();
-        currentUser = mAuth.getCurrentUser();
-
-        profile_tvName = rootview.findViewById(R.id.profile_name);
-        profile_tvEmail = rootview.findViewById(R.id.profile_email);
-
-        profile_tvName.setText(currentUser.getDisplayName());
-        profile_tvEmail.setText(currentUser.getEmail());
-
-        return rootview;
+        return inflater.inflate(R.layout.fragment_posts, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

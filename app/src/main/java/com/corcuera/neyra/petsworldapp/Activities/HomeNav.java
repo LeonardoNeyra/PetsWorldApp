@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.corcuera.neyra.petsworldapp.Fragments.HomeFragment;
+import com.corcuera.neyra.petsworldapp.Fragments.PostsFragment;
 import com.corcuera.neyra.petsworldapp.Fragments.ProfileFragment;
 import com.corcuera.neyra.petsworldapp.Fragments.SettingsFragment;
 import com.corcuera.neyra.petsworldapp.R;
@@ -110,6 +111,10 @@ public class HomeNav extends AppCompatActivity
         if (id == R.id.nav_home) {
             getSupportActionBar().setTitle("Inicio");
             getSupportFragmentManager().beginTransaction().replace(R.id.container_fragments, new HomeFragment()).commit();
+
+        } else if (id == R.id.nav_my_posts) {
+            getSupportActionBar().setTitle("Mis Posts");
+            getSupportFragmentManager().beginTransaction().replace(R.id.container_fragments, new PostsFragment()).commit();
 
         } else if (id == R.id.nav_profile) {
             getSupportActionBar().setTitle("Perfil");
